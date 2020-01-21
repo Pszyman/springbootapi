@@ -1,0 +1,1 @@
+INSERT IGNORE INTO `database`.`customer` (`pesel`, `firstname`, `surname`) VALUES ('00010100001', 'testname', 'testname');

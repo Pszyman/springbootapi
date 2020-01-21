@@ -1,0 +1,68 @@
+version: "3.3"
+services:
+
+  localhost:
+    container_name: localhost
+    image: mysql:latest
+    ports:
+    - "3306"
+    expose:
+    - "3306"
+    environment:
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: "ApriliaRS250!"
+      MYSQL_DATABASE: "database"
+      MYSQL_ROOT_PASSWORD: "ApriliaRS250!"
+    delay: 120s
+#    networks:
+#      - mynetwork
+  credit:
+    container_name: credit 
+    image: credit.jar
+#    networks:
+#      - mynetwork
+    ports:
+      - "8081:8081"
+    expose:
+      - "8081"
+    links:
+      - localhost
+      - customer
+      - product
+    depends_on:
+      - customer
+      - localhost
+      - product
+  customer:
+    container_name: customer
+    image: customer.jar
+    ports:
+    - "8082:8082"
+    expose:
+    - "8082"
+    depends_on:
+    - localhost
+    links:
+    - localhost
+#    networks:
+#      - mynetwork  
+  product:
+    container_name: product
+    image: product.jar
+    ports:
+    - "8083:8083"
+    expose:
+    - "8083"
+    depends_on:
+      - localhost
+    links:
+      - localhost
+#    networks:
+#      - mynetwork 
+
+
+  
+
+
+#networks:
+#  mynetwork:

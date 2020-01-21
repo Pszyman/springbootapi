@@ -1,0 +1,1 @@
+INSERT IGNORE INTO `database`.`product` (`creditid`, `productname`, `value`) VALUES ('1', 'testname', '0');
