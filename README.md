@@ -50,7 +50,9 @@ Application accept following REST commands:<br><br>
     
 3 POST: CreateCredit "http://localhost:8081/CreateCredit"<br>
  - thist command will post datato credit and product database. If customerdon't exist then also custome will be post to table customer.<br>
- - post object in JASON format below:<br><br>
+ - post object in JASON format below.<br>
+ - if data will be succesfuly saved to database then credit id will be returned<br>
+ - if data won't be saved due to wrong length of PESEL, PESEL is not number, customer or product API will be done then "0" will be returned<br>
  
  {<br>
         "pesel": "90052300920",<br>
