@@ -69,7 +69,24 @@ Apprilcation is build from 4 components:
 1. Credit spring boot API
 2. Customer spring boot API 
 3. Product spring boot API
-4. MySQL database
+4. MySQL database called "database" composewith below tables"
+    a. credit:
+        -int creditid
+        -String creditname
+        -String pesel
+    b. customer:
+        -String pesel (one to many relation with join column with credit)
+        -String firstname
+        -String surname
+    c. product:
+        -int creditid
+        -String productname
+        -int value
+
+# GetCredits:
+
+Get REST "GetCredits" is sending request to  credit API"
+ - creditapi
 
 
 
