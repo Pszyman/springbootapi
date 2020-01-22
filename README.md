@@ -6,8 +6,11 @@
 - Uploading images:
 
 docker pull docker.pkg.github.com/pszyman/springbootapi/credit.jar:latest
+
 docker pull docker.pkg.github.com/pszyman/springbootapi/customer.jar:latest
+
 docker pull docker.pkg.github.com/pszyman/springbootapi/product.jar:latest
+
 docker pull docker.pkg.github.com/pszyman/springbootapi/mysql:latest
 
 - Starting containers. Order is important:
