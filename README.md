@@ -13,7 +13,8 @@ docker pull docker.pkg.github.com/pszyman/springbootapi/product.jar:latest
 
 docker pull docker.pkg.github.com/pszyman/springbootapi/mysql:latest
 
-# Starting containers. Order is important. After starting mysql container wit till it will run properly. Around 2 minutes
+# Starting containers. 
+Order is important. After starting mysql container wait till it will run properly. Around 2 minutes.
 
 docker run --name localhost -p 3306 -e MYSQL_ROOT_PASSWORD=ApriliaRS250! -e MYSQL_DATABASE=database -d docker.pkg.github.com/pszyman/springbootapi/mysql:latest
 
@@ -47,6 +48,20 @@ Application accept following REST commands:
         "creditId": 1,
         "creditname": "testname"
     }
+    
+3 POST: CreateCredit "http://localhost:8081/CreateCredit"
+ - thist command will post datato credit and product database. If customerdon't exist then also custome will be post to table customer.
+ - post object in JASON format below:
+ 
+ {
+        "pesel": "90052300920",
+        "name": "Michalina",
+        "surname": "Barakadarabada",
+        "productname": "kredyt jakis",
+        "productvalue": 900,
+        "creditname": "mala kasa"
+    }
+ 
 
 # Application descritption:
 
