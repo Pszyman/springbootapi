@@ -70,7 +70,7 @@ Apprilcation is build from 4 components:<br>
 3. Product spring boot API<br>
 4. MySQL database called "database" composewith below tables"<br><br>
     a. credit:<br>
-        -int creditid<br>
+        -int creditid <br>
         -String creditname<br>
         -String pesel<br>
     b. customer:<br>
@@ -84,8 +84,39 @@ Apprilcation is build from 4 components:<br>
 
 # GetCredits:
 
-Get REST "GetCredits" is sending request to  credit API"
- - creditapi
+Get REST "GetCredits" request is workingas follow:<br>
+ - request is utilizing by credit API<br>
+ - credit API is going throug all record in database credit. For each record: 
+  - credit API is sending GET request to:<br>
+      - customer API to search customer by creditid in  customer database. Customer API is returning object which is data   from table customer<br>
+      - product API to search product by creditid in  product database. Product API is returning object which is data from  table product<br>
+ -credit API is collecting all data and returnig object with all required information.<br><br>
+ 
+ example ofrequrend object:<br>
+ {<br>
+        "pesel": "90052300920",<br>
+        "name": "Michalina",<br>
+        "surname": "Barakadarabada",<br>
+        "productname": "kredyt jakis",<br>
+        "productvalue": 900,<br>
+        "creditId": 2,<br>
+        "creditname": "mala kasa"<br>
+    }<br><br>
+ 
+ fallback:<br>
+ - if one of API(customer or product) is down then fallback method is started. It is prociding to credit api fallback data.<br>
+ - example if both services will be down:<br>
+ {<br>
+        "pesel": "90052300920",<br>
+        "name": "first name error",<br>
+        "surname": "surname error",<br>
+        "productname": "error name",<br>
+        "productvalue": 0,<br>
+        "creditId": 2,<br>
+        "creditname": "mala kasa"<br>
+    }<br>
+ 
+ 
 
 
 
