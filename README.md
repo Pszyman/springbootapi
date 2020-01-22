@@ -17,6 +17,7 @@ docker pull docker.pkg.github.com/pszyman/springbootapi/mysql:latest<br>
 
 # Starting containers. <br>
 Order is important. After starting mysql container wait till it will run properly. Around 2 minutes.<br><br>
+To start containers just run below command one after another.
 
 docker run --name localhost -p 3306 -e MYSQL_ROOT_PASSWORD=ApriliaRS250! -e MYSQL_DATABASE=database -d docker.pkg.github.com/pszyman/springbootapi/mysql:latest<br>
 
